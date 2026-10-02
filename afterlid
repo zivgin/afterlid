@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# CLI for Afterlid. Runs the app binary in command mode. Bare `afterlid` = status.
+exec /Applications/Afterlid.app/Contents/MacOS/Afterlid "${@:-status}"

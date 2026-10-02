@@ -1,0 +1,23 @@
+name: Bug report
+description: Something isn't working as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: Output of `afterlid status`
+      render: text
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac model
+      placeholder: e.g. macOS 26.1, MacBook Pro 14" M3
+    validations:
+      required: true
