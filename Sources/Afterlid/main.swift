@@ -266,11 +266,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     func refreshIcon() {
         let awake = defaults.bool(forKey: Key.awakeOn)
-        let name: String
-        if lidActive { name = "laptopcomputer" }
-        else if defaults.bool(forKey: Key.lidOn) { name = "laptopcomputer.trianglebadge.exclamationmark" }
-        else if awake { name = "cup.and.saucer.fill" }
-        else { name = "cup.and.saucer" }
+        // Always the coffee cup, so the app is easy to spot: filled while it keeps the Mac awake
+        // (or keeps it running with the lid closed), outline when idle. The lid state lives in the tooltip and menu.
+        let name = (awake || lidActive) ? "cup.and.saucer.fill" : "cup.and.saucer"
         let base = NSImage(systemSymbolName: name, accessibilityDescription: "Afterlid")
             ?? NSImage(systemSymbolName: "cup.and.saucer", accessibilityDescription: "Afterlid")
         if LidSwitch.helperInstalled {
